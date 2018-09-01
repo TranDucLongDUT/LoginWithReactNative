@@ -11,8 +11,15 @@ import { Platform, StyleSheet, Text, View } from 'react-native';
 import Login from './src/components/Login/LoginScreen'
 import Setting from './src/components/MainScreen/SettingScreen'
 import { createStackNavigator } from 'react-navigation';
+import en from './src/translations/en'
+import vi from './src/translations/vi'
+import I18n from 'react-native-i18n'
 
-
+I18n.fallbacks = true;
+I18n.translations = {
+    en,
+    vi
+}
 
 // export default createStackNavigator({
 //   LoginScreen: {
@@ -33,7 +40,7 @@ export default class App extends Component<Props> {
 
       return (
           <View>
-              <Text >Hello  </Text>
+              <Text >{I18n.t('abc',{locale: 'vi'})} </Text>
           </View>
       );
   }
