@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 import { Platform, BackHandler, StyleSheet, Text, Alert, View, TouchableOpacity, TextInput } from 'react-native';
 
-const instructions = Platform.select({
-    ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-    android:
-        'Double tap R on your keyboard to reload,\n' +
-        'Shake or press menu button for dev menu',
-});
-
 type Props = {};
 export default class Login extends Component<Props> {
 
@@ -73,7 +66,7 @@ export default class Login extends Component<Props> {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.title}> Demo Login</Text>
+                <Text style={styles.title}> Demo Login!</Text>
                 <View style={styles.styleViewInput}>
                     <Text style={{ marginRight: 10, color: 'gray' }}>UserName: </Text>
                     <TextInput placeholder="Input your username"

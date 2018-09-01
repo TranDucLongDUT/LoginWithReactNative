@@ -8,7 +8,7 @@
 
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
-import I18n from 'react-native-i18n';
+import I18N from '../../translations/languageControl'
 
 
 type Props = {};
@@ -19,26 +19,16 @@ export default class App extends Component<Props> {
     }
     render() {
         const { params } = this.props.navigation.state;
-
+        const myObj = I18N.t('mainscreen');
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>Hello {params.username}</Text>
-                <Text style={styles.welcome}> {I18n.t('title')}</Text>
+                <Text style={styles.welcome}> {myObj.welcomeTitle}</Text>
             </View>
         );
     }
 }
-
-//
-I18n.fallbacks = true;
-I18n.translations = {
-    en: {
-        title: 'Welcome to Language Screen',
-    },
-    vi: {
-        title: 'Chào mừng đến với màn hình Language'
-    }
-}
+ 
 
 const styles = StyleSheet.create({
     container: {
