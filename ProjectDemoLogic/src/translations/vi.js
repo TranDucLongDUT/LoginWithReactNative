@@ -22,5 +22,5 @@ export default {
         EngLanguage: 'Tiếng Anh',
         VietNamLanguage: 'Tiếng Việt'
     },
-    abc: '132'
+    testingscreen: 'Thủ tướng: Thành tích tại Asiad 18 mang lại cảm giác lâng lâng khó tả'
 }

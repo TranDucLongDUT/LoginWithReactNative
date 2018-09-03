@@ -21,5 +21,5 @@ export default {
         EngLanguage: 'English',
         VietNamLanguage: 'Vietnamese'
     },
-    abc: 'cdf'
+    testingscreen: 'Prime Minister: Achievement at the Asiad 18 brings the feeling of hard-to-describe '
 }

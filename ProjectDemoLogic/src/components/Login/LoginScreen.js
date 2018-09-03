@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Platform, BackHandler, StyleSheet, Text, Alert, View, TouchableOpacity, TextInput } from 'react-native';
+import I18N from '../../translations/languageControl'
 
 type Props = {};
 export default class Login extends Component<Props> {
@@ -64,11 +65,12 @@ export default class Login extends Component<Props> {
 
 
     render() {
+        const myObj = I18N.t('login');
         return (
             <View style={styles.container}>
                 <Text style={styles.title}> Demo Login!</Text>
                 <View style={styles.styleViewInput}>
-                    <Text style={{ marginRight: 10, color: 'gray' }}>UserName: </Text>
+                    <Text style={{ marginRight: 10, color: 'gray' }}> {myObj.username} </Text>
                     <TextInput placeholder="Input your username"
                         placeholderTextColor="black" style={styles.textInput}
                         onChangeText={(_user) => {

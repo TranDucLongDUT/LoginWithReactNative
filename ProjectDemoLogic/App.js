@@ -10,8 +10,8 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 import Login from './src/components/Login/LoginScreen'
 import Setting from './src/components/MainScreen/SettingScreen'
+import Testing from './src/components/MainScreen/TestingScreen'
 import { createStackNavigator } from 'react-navigation';
-import I18n from './src/translations/languageControl'
 
 export default createStackNavigator({
     LoginScreen: {
@@ -20,4 +20,8 @@ export default createStackNavigator({
     LanguageActivity: {
         screen: Setting
     },
+    TestingScreen: {
+        screen : Testing
+    },
+   
 });
