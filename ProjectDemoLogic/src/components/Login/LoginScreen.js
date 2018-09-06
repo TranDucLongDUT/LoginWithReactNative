@@ -65,6 +65,7 @@ export default class Login extends Component<Props> {
 
 
     render() {
+        console.log('LoginScreen - render');
         const myObj = I18N.t('login');
         return (
             <View style={styles.container}>
@@ -109,6 +110,43 @@ export default class Login extends Component<Props> {
             </View >
         )
     }
+    //-----------------------
+    componentWillMount() {
+        console.log('componentWillMount');
+
+    }
+    componentDidMount() {
+        console.log('componentDidMount');
+    }
+    // ---
+    componentDidMount() {
+        console.log('componentDidMount');
+    }
+
+    //---------Updating--------
+    componentWillReceiveProps(nextProps) {
+        console.log('componentWillReceiveProps', nextProps);
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('shouldComponentUpdate', nextProps, nextState);
+        return true;
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        console.log('componentWillUpdate', nextProps, nextState);
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log('componentDidUpdate', prevProps, prevState);
+    }
+
+    //---------Unmounting--------
+    componentWillUnmount() {
+        console.log('componentWillUnmount');
+
+    }
+    //----------
 }
 
 //Styles

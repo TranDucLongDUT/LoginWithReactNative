@@ -9,6 +9,7 @@ export default class Testing extends Component<Props> {
         title: "Testing ",
     }
     render() {
+        console.log('TestingScreen - render');
         const { params } = this.props.navigation.state;
         const { goBack } = this.props.navigation;
         return (
