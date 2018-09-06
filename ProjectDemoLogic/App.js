@@ -11,7 +11,9 @@ import { Platform, StyleSheet, Text, View } from 'react-native';
 import Login from './src/components/Login/LoginScreen'
 import Setting from './src/components/MainScreen/SettingScreen'
 import Testing from './src/components/MainScreen/TestingScreen'
-import { createStackNavigator } from 'react-navigation';
+import { StackNavigator, createStackNavigator } from 'react-navigation';
+import store from './src/redux/store'
+import { Provider } from 'react-redux'
 
 export default createStackNavigator({
     LoginScreen: {
@@ -21,7 +23,17 @@ export default createStackNavigator({
         screen: Setting
     },
     TestingScreen: {
-        screen : Testing
+        screen: Testing
     },
-   
+
 });
+
+// class App extends Component {
+//     render() {
+//         return (
+//             <Provider store={store}>
+//                 <navigator />
+//             </Provider>
+//         )
+//     }
+// }

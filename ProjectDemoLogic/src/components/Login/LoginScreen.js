@@ -50,7 +50,7 @@ export default class Login extends Component<Props> {
                     this.setState({ checkLogin: responseJson.success });
                     if (this.state.checkLogin > 0) {
                         // Alert.alert('Login Success!');
-                        this.props.navigation.navigate('LanguageActivity', {username: this.state.username});
+                        this.props.navigation.navigate('LanguageActivity', { username: this.state.username });
                     }
                     else {
                         Alert.alert('Login Failed!')
@@ -68,11 +68,13 @@ export default class Login extends Component<Props> {
         const myObj = I18N.t('login');
         return (
             <View style={styles.container}>
-                <Text style={styles.title}> Demo Login!</Text>
+                <Text style={styles.title}> Demo Login !</Text>
                 <View style={styles.styleViewInput}>
                     <Text style={{ marginRight: 10, color: 'gray' }}> {myObj.username} </Text>
                     <TextInput placeholder="Input your username"
-                        placeholderTextColor="black" style={styles.textInput}
+                        placeholderTextColor="black"
+                        style={styles.textInput}
+                        underlineColorAndroid='transparent'
                         onChangeText={(_user) => {
                             this.setState({ username: _user })
                         }} />
@@ -81,7 +83,9 @@ export default class Login extends Component<Props> {
                 <View style={styles.styleViewInput}>
                     <Text style={{ marginRight: 10, color: 'gray' }}> Password: </Text>
                     <TextInput placeholder="Input your password"
-                        placeholderTextColor="black" style={styles.textInput}
+                        placeholderTextColor="black"
+                        style={styles.textInput}
+                        underlineColorAndroid='transparent'
                         secureTextEntry={true}
                         onChangeText={(_pass) => {
                             this.setState({ password: _pass })
