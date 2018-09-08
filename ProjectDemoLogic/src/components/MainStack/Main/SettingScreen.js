@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, ToastAndroid, TouchableOpacity } from 'react-native';
+import { Platform, StyleSheet, Text, View, Button } from 'react-native';
 import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
-import I18N from '../../translations/languageControl'
-import { vietnameLanguage, englishLanguage } from '../../redux/action'
 import { connect } from 'react-redux'
+//Language C
+import I18N from '../../../translations/languageControl'
+import { vietnameLanguage, englishLanguage } from '../../../redux/action'
 
 var arrLanguages = [
     { label: 'en', value: 0 },
     { label: 'vi', value: 1 },
 ]
 
-type Props = {};
-class SettingScreen extends Component<Props> {
+class SettingScreen extends Component {
     constructor(props) {
         super(props);
         this.state = props;
         // this.state = { language: "en" }
+    }
+
+    
+    static navigationOptions = {
+        title: "Setting ",
     }
 
     handleVietNamLanguage = () => {
@@ -30,8 +35,8 @@ class SettingScreen extends Component<Props> {
         title: "Home ",
     }
 
-    onIntentToTestScreen = () => {
-        this.props.navigation.navigate('TestingScreen', { currentLanguage: I18N.getCurrentLanguage() });
+    onIntentToHomeScreen = () => {
+        this.props.navigation.navigate('Home', { currentLanguage: I18N.getCurrentLanguage() });
     }
 
     render() {
@@ -62,19 +67,11 @@ class SettingScreen extends Component<Props> {
                     formHorizontal={false}
 
                 />
-                <TouchableOpacity onPress={this.onIntentToTestScreen} style={styles.touchableopacity} >
-                    <View>
-                        <Text style={{ color: 'white', fontSize: 15, padding: 5, }}>Go to TestScreen</Text>
-                    </View>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={{width: 200, height:100}}  onPress={() => {
-                    goBack();
-                }} >
-                    <View>
-                        <Text style={{fontSize: 25, padding:5, backgroundColor: 'blue'}}>Go Back</Text>
-                    </View>
-                 </TouchableOpacity>
+                <Button 
+                    title = "Go To Home Screen"
+                    onPress = {(this.onIntentToHomeScreen())}
+                />
+                
             </View>
         );
     }
@@ -102,19 +99,13 @@ export default connect(mapStateToProps, mapDispatchToProps)(SettingScreen)
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
         backgroundColor: '#F5FCFF',
+        alignItems: 'center'
     },
     welcome: {
         fontSize: 20,
         textAlign: 'center',
         margin: 10,
-    },
-    touchableopacity: {
-        justifyContent: "flex-start",
-        backgroundColor: 'green',
-        width: 150,
-        height: 50,
-        borderRadius: 10
-    }
+    }, 
 });

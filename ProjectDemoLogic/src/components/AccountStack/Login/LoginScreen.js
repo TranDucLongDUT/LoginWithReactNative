@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Platform, BackHandler, StyleSheet, Text, Alert, View, TouchableOpacity, TextInput } from 'react-native';
-import I18N from '../../translations/languageControl'
+import I18N from '../../../translations/languageControl'
 
-type Props = {};
-export default class Login extends Component<Props> {
+export default class LoginScreen extends Component {
 
     constructor(props) {
         super(props)
@@ -33,33 +32,35 @@ export default class Login extends Component<Props> {
         }
         else if (this.state.password == '') {
             Alert.alert('Please input your password!');
+        } else {
+            this.props.navigation.navigate('MainStack', { username: this.state.username });
         }
-        else {
-            return fetch('http://10.0.2.2:8888/user/login', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    username: this.state.username,
-                    password: this.state.password,
-                })
-            }).then((response) => response.json())
-                .then((responseJson) => {
-                    this.setState({ checkLogin: responseJson.success });
-                    if (this.state.checkLogin > 0) {
-                        // Alert.alert('Login Success!');
-                        this.props.navigation.navigate('LanguageActivity', { username: this.state.username });
-                    }
-                    else {
-                        Alert.alert('Login Failed!')
-                    }
-                })
-                .catch((error) => {
-                    console.error(error);
-                });
-        }
+        // else {
+        //     return fetch('http://10.0.2.2:8888/user/login', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Accept': 'application/json',
+        //             'Content-Type': 'application/json',
+        //         },
+        //         body: JSON.stringify({
+        //             username: this.state.username,
+        //             password: this.state.password,
+        //         })
+        //     }).then((response) => response.json())
+        //         .then((responseJson) => {
+        //             this.setState({ checkLogin: responseJson.success });
+        //             if (this.state.checkLogin > 0) {
+        //                 // Alert.alert('Login Success!');
+        //                 this.props.navigation.navigate('MainStack', { username: this.state.username });
+        //             }
+        //             else {
+        //                 Alert.alert('Login Failed!')
+        //             }
+        //         })
+        //         .catch((error) => {
+        //             console.error(error);
+        //         });
+        // }
 
     }
 
@@ -69,7 +70,7 @@ export default class Login extends Component<Props> {
         const myObj = I18N.t('login');
         return (
             <View style={styles.container}>
-                <Text style={styles.title}> Demo Login !</Text>
+                <Text style={styles.title}> Demo Login 123!</Text>
                 <View style={styles.styleViewInput}>
                     <Text style={{ marginRight: 10, color: 'gray' }}> {myObj.username} </Text>
                     <TextInput placeholder="Input your username"
