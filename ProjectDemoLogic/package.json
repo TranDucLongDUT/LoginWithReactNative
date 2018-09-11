@@ -13,8 +13,12 @@
     "react": "16.4.1",
     "react-native": "^0.55.4",
     "react-native-i18n": "^2.0.15",
+    "react-native-icons": "^0.7.1",
+    "react-native-paper": "^2.0.1",
     "react-native-simple-radio-button": "^2.7.2",
+    "react-native-vector-icons": "^5.0.0",
     "react-navigation": "^2.12.1",
+    "react-navigation-material-bottom-tabs": "^0.4.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0"
   },

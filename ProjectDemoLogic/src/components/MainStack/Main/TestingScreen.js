@@ -4,9 +4,6 @@ import I18N from '../../../translations/languageControl'
 
 export default class TestingScreen extends Component {
 
-    static navigationOptions = {
-        title: "Testing ",
-    }
 
     onIntentToSettingScreen = () => {
         this.props.navigation.navigate('Setting');
@@ -21,7 +18,7 @@ export default class TestingScreen extends Component {
                 </Text>
 
                 <Button title="Go to Setting Screen"
-                    onPress={this.onIntentToSettingScreen()}
+                    onPress={this.onIntentToSettingScreen}
                 />
             </View>
         )

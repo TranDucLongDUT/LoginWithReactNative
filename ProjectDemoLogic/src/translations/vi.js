@@ -22,5 +22,10 @@ export default {
         EngLanguage: 'Tiếng Anh',
         VietNamLanguage: 'Tiếng Việt'
     },
-    testingscreen: 'Thủ tướng: Thành tích tại Asiad 18 mang lại cảm giác lâng lâng khó tả'
+    testingscreen: 'Thủ tướng: Thành tích tại Asiad 18 mang lại cảm giác lâng lâng khó tả',
+    titleBottomTab: {
+        mainScreen: 'Trang Chủ',
+        setting : 'Cài Đặt',
+        testing : 'Thử',
+    }
 }

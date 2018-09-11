@@ -15,13 +15,7 @@ class SettingScreen extends Component {
     constructor(props) {
         super(props);
         this.state = props;
-        // this.state = { language: "en" }
-    }
-
-    
-    static navigationOptions = {
-        title: "Setting ",
-    }
+    }  
 
     handleVietNamLanguage = () => {
         this.props.vietnameLanguage();
@@ -29,11 +23,7 @@ class SettingScreen extends Component {
 
     handleEnglistLanguage = () => {
         this.props.englishLanguage();
-    }
-
-    static navigationOptions = {
-        title: "Home ",
-    }
+    } 
 
     onIntentToHomeScreen = () => {
         this.props.navigation.navigate('Home', { currentLanguage: I18N.getCurrentLanguage() });
@@ -69,7 +59,7 @@ class SettingScreen extends Component {
                 />
                 <Button 
                     title = "Go To Home Screen"
-                    onPress = {(this.onIntentToHomeScreen())}
+                    onPress = {this.onIntentToHomeScreen}
                 />
                 
             </View>
