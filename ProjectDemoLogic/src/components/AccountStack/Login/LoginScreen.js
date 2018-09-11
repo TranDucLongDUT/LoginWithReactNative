@@ -32,35 +32,33 @@ export default class LoginScreen extends Component {
         }
         else if (this.state.password == '') {
             Alert.alert('Please input your password!');
-        } else {
-            this.props.navigation.navigate('MainStack', { username: this.state.username });
         }
-        // else {
-        //     return fetch('http://10.0.2.2:8888/user/login', {
-        //         method: 'POST',
-        //         headers: {
-        //             'Accept': 'application/json',
-        //             'Content-Type': 'application/json',
-        //         },
-        //         body: JSON.stringify({
-        //             username: this.state.username,
-        //             password: this.state.password,
-        //         })
-        //     }).then((response) => response.json())
-        //         .then((responseJson) => {
-        //             this.setState({ checkLogin: responseJson.success });
-        //             if (this.state.checkLogin > 0) {
-        //                 // Alert.alert('Login Success!');
-        //                 this.props.navigation.navigate('MainStack', { username: this.state.username });
-        //             }
-        //             else {
-        //                 Alert.alert('Login Failed!')
-        //             }
-        //         })
-        //         .catch((error) => {
-        //             console.error(error);
-        //         });
-        // }
+        else {
+            return fetch('http://10.0.2.2:8888/user/login', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username: this.state.username,
+                    password: this.state.password,
+                })
+            }).then((response) => response.json())
+                .then((responseJson) => {
+                    this.setState({ checkLogin: responseJson.success });
+                    if (this.state.checkLogin > 0) {
+                        // Alert.alert('Login Success!');
+                        this.props.navigation.navigate('MainStack', { username: this.state.username });
+                    }
+                    else {
+                        Alert.alert('Login Failed!')
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        }
 
     }
 
@@ -70,16 +68,15 @@ export default class LoginScreen extends Component {
         const myObj = I18N.t('login');
         return (
             <View style={styles.container}>
-                <Text style={styles.title}> Demo Login 123!</Text>
+                <Text style={styles.title}> Demo Login1234!</Text>
                 <View style={styles.styleViewInput}>
-                    <Text style={{ marginRight: 10, color: 'gray' }}> {myObj.username} </Text>
+                    <Text style={{ marginRight: 10, color: 'gray' }}> Username </Text>
                     <TextInput placeholder="Input your username"
                         placeholderTextColor="black"
                         style={styles.textInput}
                         underlineColorAndroid='transparent'
-                        onChangeText={(_user) => {
-                            this.setState({ username: _user })
-                        }} />
+                        onChangeText={(_user) => this.state.username = _user}
+                    />
                 </View>
 
                 <View style={styles.styleViewInput}>
@@ -89,9 +86,8 @@ export default class LoginScreen extends Component {
                         style={styles.textInput}
                         underlineColorAndroid='transparent'
                         secureTextEntry={true}
-                        onChangeText={(_pass) => {
-                            this.setState({ password: _pass })
-                        }} />
+                        onChangeText={(_pass) => this.state.password = _pass}
+                    />
                 </View>
 
                 <View style={{ flexDirection: 'row', marginTop: 20, justifyContent: "center", alignItems: 'center' }}>
@@ -113,39 +109,38 @@ export default class LoginScreen extends Component {
     }
     //-----------------------
     componentWillMount() {
-        console.log('componentWillMount');
+        console.log('LoginScreen: componentWillMount');
 
     }
     componentDidMount() {
-        console.log('componentDidMount');
+        console.log('LoginScreen: componentDidMount');
     }
     // ---
     componentDidMount() {
-        console.log('componentDidMount');
+        console.log('LoginScreen: componentDidMount');
     }
 
     //---------Updating--------
     componentWillReceiveProps(nextProps) {
-        console.log('componentWillReceiveProps', nextProps);
+        console.log('LoginScreen: componentWillReceiveProps', nextProps);
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        console.log('shouldComponentUpdate', nextProps, nextState);
+        console.log('LoginScreen: shouldComponentUpdate', nextProps, nextState);
         return true;
     }
 
     componentWillUpdate(nextProps, nextState) {
-        console.log('componentWillUpdate', nextProps, nextState);
+        console.log('LoginScreen: componentWillUpdate', nextProps, nextState);
     }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log('componentDidUpdate', prevProps, prevState);
+        console.log('LoginScreen: componentDidUpdate', prevProps, prevState);
     }
 
     //---------Unmounting--------
     componentWillUnmount() {
-        console.log('componentWillUnmount');
-
+        console.log('LoginScreen: componentWillUnmount');
     }
     //----------
 }
@@ -197,6 +192,12 @@ const styles = StyleSheet.create({
         fontSize: 15,
         justifyContent: "center",
         alignItems: "center"
+    },
+    signUpText: {
+        flexGrow: 1,
+        alignItems: 'center',
+        justifyContent: 'flex-end'
     }
+
 
 });
