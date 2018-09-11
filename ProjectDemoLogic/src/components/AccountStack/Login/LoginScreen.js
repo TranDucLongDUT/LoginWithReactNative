@@ -68,7 +68,7 @@ export default class LoginScreen extends Component {
         const myObj = I18N.t('login');
         return (
             <View style={styles.container}>
-                <Text style={styles.title}> Demo Login!</Text>
+                <Text style={styles.title}> Demo Login1234!</Text>
                 <View style={styles.styleViewInput}>
                     <Text style={{ marginRight: 10, color: 'gray' }}> Username </Text>
                     <TextInput placeholder="Input your username"
